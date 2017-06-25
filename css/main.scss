@@ -24,7 +24,6 @@ $transition_link: border $speed_quick ease;
 $border-width_pill: 4px;
 $box-shadow_pill: 6px 6px 0 0 $color_gray-dark;
 
-
 // All pages
 html {
   font-family: $font-family_sans-serif;
@@ -141,12 +140,12 @@ a {
   transition: box-shadow $speed_quick ease;
   display: block;
 
-  &:hover {
-    box-shadow: inset 6px 6px 0 0 $color_blue-light, inset -6px -6px 0 0 $color_blue-light;
+  &:hover, &:focus {
+    box-shadow: inset 0 9999px 0 0 transparentize($color_blue-light, .5);
     border-bottom: none;
 
     & .pill_title {
-      border-color: $color_blue-light;
+      // border-color: $color_blue-light;
     }
   }
 }
@@ -187,11 +186,13 @@ a {
 
   .project_description {
     margin: -30px auto 0 auto;
-    padding: 20px;
+    padding: 40px;
     width: 600px;
     color: #fff;
     background-color: $color_gray-dark;
     font-family: $font-family_serif;
     font-size: $font-size_small;
+    text-align: left;
+    line-height: $font-size_small * 1.6;
   }
 }
