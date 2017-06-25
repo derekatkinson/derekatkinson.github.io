@@ -1,11 +1,33 @@
 ---
 ---
-$color_gray-dark: #222;
-$color_gray-light: transparentize($color_gray-dark, .75);
-$color-blue-light: #39f;
 
+// Breakpoints: 850px,
+
+// Variables
+$color_gray-dark: #222;
+$color_gray-light: lighten($color_gray-dark, 50%);
+$color_blue-light: #39f;
+$margin_theme: 4px;
+$height_nav-main: 83px;
+
+$font-family_serif: 'Droid Serif', Georgia, serif;
+$font-family_sans-serif: 'Montserrat', Helvetica, sans-serif;
+$font-size_small: 18px;
+$font-size_medium: 24px;
+$font-size_large: 48px;
+
+$speed_quick:   250ms;
+$speed_relaxed: 400ms;
+
+$transition_link: border $speed_quick ease;
+
+$border-width_pill: 4px;
+$box-shadow_pill: 6px 6px 0 0 $color_gray-dark;
+
+
+// All pages
 html {
-  font-family: 'Droid Serif', Georgia, serif
+  font-family: $font-family_sans-serif;
 }
 
 * {
@@ -20,46 +42,156 @@ nav.nav_main {
   display: block;
   padding: 15px 20px;
   border-bottom: 4px solid $color_gray-dark;
-  font-size: 26px;
+  font-size: $font_size-medium;
+  height: $height_nav-main;
 
-  a.logo {
+  .logo {
+    // border: none;
+    margin: 0;
   }
 
-  a.link {
-    text-transform: uppercase;
+  .right {
+    float: right;
+  }
+
+  .primary {
+    a {
+      margin-right: 50px;
+    }
+  }
+
+  .secondary {
+    a {
+      margin-right: 20px;
+    }
+  }
+
+  a {
     display: inline-block;
     vertical-align: top;
-  }
-
-  a.link.primary {
-    margin-left: 50px;
     color: $color_gray-dark;
     margin-top: 12px;
-    border-color: $color_gray-light; // added because transition on hover was transitioning from blue to gray
+  }
+}
 
-    &:hover {
-      border-bottom: 4px solid $color_gray-light;
-      transition: border 250ms ease;
-    }
-    &.active {
-      border-bottom: 4px solid $color_gray-dark;
-    }
+a {
+  font-family: $font-family_sans-serif;
+  text-decoration: none;
+  color: $color_blue-light;
+  border-color: $color_blue-light; // added because transition on hover was transitioning from blue to gray
+  transition: $transition_link;
+
+  &:hover,
+  &:focus {
+    border-bottom: 4px solid $color_blue-light;
   }
 
-  a.link.secondary {
-    float: right;
-    margin: 12px 0 0 20px;
-    border-color: $color_gray-light; // added because transition on hover was transitioning from blue to gray
+  &:active,
+  &.active {
+    border-bottom: 4px solid $color_gray-dark;
+  }
+}
 
-    &:hover {
-      border-bottom: 4px solid $color_gray-light;
-      transition: border 250ms ease;
+.container_main {
+  position: absolute;
+  top: $height_nav-main;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.container_home {
+  // Home page only
+  .left {
+    position: absolute;
+    top: $margin_theme;
+    right: calc(50% + 2px);
+    bottom: $margin_theme;
+    left: $margin_theme;
+
+    background-image: url('{{site.baseurl}}/assets/photo/background_design.jpg');
+  }
+
+  // Home page only
+  .right {
+    position: absolute;
+    top: $margin_theme;
+    right: $margin_theme;
+    bottom: $margin_theme;
+    left: calc(50% + 2px);
+
+    background-image: url('{{site.baseurl}}/assets/photo/background_photo.jpg');
+  }
+
+  // Home page only
+  .pill_title {
+    font-size: $font-size_large;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: $transition_link;
+  }
+}
+
+.link_block {
+  background-size: cover;
+  background-position: center center;
+  transition: box-shadow $speed_quick ease;
+  display: block;
+
+  &:hover {
+    box-shadow: inset 6px 6px 0 0 $color_blue-light, inset -6px -6px 0 0 $color_blue-light;
+    border-bottom: none;
+
+    & .pill_title {
+      border-color: $color_blue-light;
     }
   }
 }
 
-.link {
-  font-family: 'Montserrat', Helvetica, sans-serif;
-  text-decoration: none;
-  color: $color-blue-light;
+.pill_title {
+  font-size: $font-size_medium;
+  background: #fff;
+  border: 4px solid $color_gray-dark;
+  padding: 20px 40px;
+  box-shadow: $box-shadow_pill;
+  border-radius: 100px;
+  display: inline-block;
+  color: $color_gray-dark;
+}
+
+.breadcrumbs {
+  margin: 50px 20px;
+  font-size: $font-size_medium;
+
+  h1 {
+    font-size: inherit;
+    display: inline;
+  }
+}
+
+.text_header {
+  font-size: $font-size_large;
+  margin: 50px 20px;
+}
+
+.project {
+  background: #aaa;
+  margin: 0 $margin_theme $margin_theme $margin_theme;
+  padding: 40px;
+
+  .project_title {
+  }
+
+  .project_description {
+    margin: -30px auto 0 auto;
+    padding: 20px;
+    width: 600px;
+    color: #fff;
+    background-color: $color_gray-dark;
+    font-family: $font-family_serif;
+    font-size: $font-size_small;
+  }
 }

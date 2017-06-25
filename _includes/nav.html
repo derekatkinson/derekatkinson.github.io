@@ -1,11 +1,14 @@
 <nav class="nav_main">
-  <a href="/" class="link logo"><img src="{{site.baseurl}}/assets/logo.svg"></a>
-  <a href="{{site.baseurl}}/design" class="link primary{% if page.permalink == "design/" %} active{% endif %}">Design</a>
-  <a href="{{site.baseurl}}/photo" class="link primary{% if page.permalink == "photo/" %} active{% endif %}">Photo</a>
-  <a href="{{site.baseurl}}/about" class="link primary{% if page.permalink == "about/" %} active{% endif %}">About</a>
-  <a href="linkedin.com/in/atkinsonderek" class="link secondary"><img src="{{site.baseurl}}/assets/linkedin.svg"></a>
-  <a href="https://medium.com/@derekatkinson/latest" class="link secondary"><img src="{{site.baseurl}}/assets/medium.svg"></a>
-  <a href="https://www.instagram.com/d_e.r.e_k/" class="link secondary"><img src="{{site.baseurl}}/assets/instagram.svg"></a>
-  <a href="mailto:derekatkinsondesign@gmail.com" class="link secondary"><img src="{{site.baseurl}}/assets/email.svg"></a>
-  <!-- {% if page.slug == "js" %} active{% endif %} -->
+  <a href="/" class="logo"><img src="{{site.baseurl}}/assets/logo.svg"></a>
+  <div class="right secondary">
+    <a href="mailto:derekatkinsondesign@gmail.com"><img src="{{site.baseurl}}/assets/email.svg"></a>
+    <!-- <a href="https://www.instagram.com/d_e.r.e_k/"><img src="{{site.baseurl}}/assets/instagram.svg"></a> -->
+    <a href="https://medium.com/@derekatkinson/latest"><img src="{{site.baseurl}}/assets/medium.svg"></a>
+    <a href="https://www.linkedin.com/in/atkinsonderek"><img src="{{site.baseurl}}/assets/linkedin.svg"></a>
+  </div>
+  <div class="right primary">
+    <a href="{{site.baseurl}}/design" {% if page.permalink == "design/" %}class="active"{% endif %}>DESIGN</a>
+    <a href="{{site.baseurl}}/photo" {% if page.permalink == "photo/" %}class="active"{% endif %}>PHOTO</a>
+    <a href="{{site.baseurl}}/about" {% if page.permalink == "about/" %}class="active"{% endif %}>ABOUT</a>
+  </div>
 </nav>
